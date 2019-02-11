@@ -1,0 +1,40 @@
+body{
+    background-color: rgb(97, 96, 96);
+    max-width: 60em;
+}
+div{
+    display: block;
+}
+img{
+    max-width: 100%;
+    height: 3em;
+}
+h1{
+    text-align: center;
+}
+.imgwrapper{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    justify-content: center;
+}
+.box{
+    border: 0.75px solid;
+    border-radius: 5px;
+}
+.box a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    background-color: #666;
+    padding: .5em;
+    text-align: center;
+}
+a {
+    color: #333;
+}
