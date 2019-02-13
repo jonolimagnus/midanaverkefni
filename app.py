@@ -17,6 +17,14 @@ def index():
     return render_template("index.tpl", data=data)
 
 
+@app.route("/company/<company>")
+def comp(company):
+    return render_template("Atlandsolía")
 
+"""
+@app.route(404)
+def page_not_found(error)
+    return render_template("page_not_found.tpl")
+"""
 if __name__ == '__main__':
     app.run()
