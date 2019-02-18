@@ -8,6 +8,8 @@ from jinja2 import ext
 
 app = Flask(__name__)
 
+app.jinja_env.add_extension(ext.do)
+
 with urllib.request.urlopen("http://apis.is/petrol/") as url:
     data = json.loads(url.read().decode())
 
@@ -19,12 +21,18 @@ def index():
 
 @app.route("/company/<company>")
 def comp(company):
-    return render_template("Atlandsolía")
+    return render_template("company.tpl",data=data.com-company)
+
+@app.route("/moreinfo/<moreinfo>")
+def info(key):
+    return render_template("moreinfo.tpl",data=data.k-key)
 
 """
 @app.route(404)
 def page_not_found(error)
     return render_template("page_not_found.tpl")
 """
+
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug =True)

@@ -19,26 +19,22 @@
         </div>
         <br>
         <div class="wrapper">
-		 	<div class='box'><a href="/company/Atlandsolia.html"> Atlandsolía</a></div>
-		 	<div class='box'><a href="/company/Costco Iceland.html"> Costco Ísland</a></div>
-		 	<div class='box'><a href="/company/Dælan.html"> Dælan</a></div>
-		 	<div class='box'><a href="/company/N1.html"> N1</a></div>
-		 	<div class='box'><a href="/company/ÓB.html"> ÓB</a></div>
-		 	<div class='box'><a href="/company/Olís.html"> Olís</a></div>
-		 	<div class='box'><a href="/company/Orkan.html"> Orkan</a></div>
-		    <div class='box'><a href="/company/Orkan X.html"> Orkan X</a></div>
-
-            {% for i in data['results'] %}
-                <div class='box'> {{ i['companny'] }} </div>
-            {% endfor %}
-
-
-            {% raw %}
-                {%- if (data['results'][i]['company'] !=data['results'][i+]['company']) %}
-                    <div class='box'><a hrefa="/company/{{data['results'][i]['company']}}"></div>
-                    <div class='box'><a hrefa="/company/{{data['results'][c+1]['company']}}"></div>
+		 	{% set one = [] %}
+            {% for item in data['results']%}
+                {% if item.company not in one %}
+                    {% do one.append(item.company) %}
+                    <div class='box'><a href="/company/{{ item.company }}">{{ item.company }}</a></div>
                 {% endif %}
-            {% endraw %}
+            {% endfor %}
+            
+            <div class="kort">
+                <h2>Besta verðið</h2>
+                <h4> Ódýrasta bensínið: <i>{{minipriceP}} kr.</i> er hjá {{companyP}}<h4>
+                <h4> Ódýrasta dísel olian: <i>{{minipriceP}} kr.</i> er hjá {{companyP}}<h4>
+                <div>
+                    <p>Síðast uppfært: {{ data.timestampPriceCheck }}</p>
+                </div>
+            </div>
         </div>
     </body>
 </html> 

@@ -18,7 +18,7 @@
         
         {% endfor %}
     </table>
-            <h3>fjöldi stöðva: </h3>
+            <h3>fjöldi stöðva: {{ cmt | length }}</h3>
     {%endblock%}
 
     

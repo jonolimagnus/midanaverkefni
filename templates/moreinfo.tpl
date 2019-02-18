@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.tpl-" %}
 
 {%block title %}Nánari upplýsingar bensínstöðvar{% endblock %}
 {% block content %}
