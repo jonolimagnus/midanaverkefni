@@ -8,10 +8,16 @@ from jinja2 import ext
 
 app = Flask(__name__)
 
-app.jinja_env.add_extension(ext.do)
 
 with urllib.request.urlopen("http://apis.is/petrol/") as url:
     data = json.loads(url.read().decode())
+
+def format_time(data):
+    return datetime.strptime(data, '%Y-%m-%dT%H:%M:%S.%f').strftime('%d. %m. %Y k1. %H:%M')
+
+app.jinja_env.add_extension(ext.do)
+
+app.jinja_env.filters['format_time'] = format_time
 
 
 @app.route("/")
@@ -21,11 +27,11 @@ def index():
 
 @app.route("/company/<company>")
 def comp(company):
-    return render_template("company.tpl",data=data.com-company)
+    return render_template("company.tpl",data=data,com=company)
 
 @app.route("/moreinfo/<moreinfo>")
 def info(key):
-    return render_template("moreinfo.tpl",data=data.k-key)
+    return render_template("moreinfo.tpl",data=data,k=key)
 
 """
 @app.route(404)

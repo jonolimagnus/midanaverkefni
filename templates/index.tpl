@@ -31,9 +31,7 @@
                 <h2>Besta verðið</h2>
                 <h4> Ódýrasta bensínið: <i>{{minipriceP}} kr.</i> er hjá {{companyP}}<h4>
                 <h4> Ódýrasta dísel olian: <i>{{minipriceP}} kr.</i> er hjá {{companyP}}<h4>
-                <div>
-                    <p>Síðast uppfært: {{ data.timestampPriceCheck }}</p>
-                </div>
+                <p>Síðast uppfært: {{ data.timestampPriceCheck | format_time }}</p>
             </div>
         </div>
     </body>

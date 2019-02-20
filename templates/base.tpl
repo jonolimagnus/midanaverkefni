@@ -8,10 +8,12 @@
     {% endblock %}
 </head>
 <body>
-    {% include "haus.tpl" ignore missing %}
+    {% include "company.tpl" ignore missing %}
 
-    <main>{% block title %}{% endblock %}</main>
+    <main> 
+    {% block content %}{% endblock %}
+    </main>
 
-    {% include "haus.tpl" ignore missing %}
+
 </body>
 </html>
